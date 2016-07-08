@@ -3,6 +3,10 @@ set t_Co=256
 set nocompatible
 set backspace=2
 
+
+"unmap +
+"unmap -
+
 " Toggle Line numbers
 nmap <silent> <F10> :exec &nu==&rnu? "se nu!" : "se rnu!"<CR>
 let g:vim_json_syntax_conceal=0
@@ -15,7 +19,7 @@ set		laststatus=2
 " Alias for sudo writing
 cmap w!! w !sudo tee > /dev/null %
 " Populate the powerline symbols
-" let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 " if !exists('g:airline_symbols')
 "	let g:airline_symbols = {}
 "endif
@@ -27,7 +31,8 @@ set             ts=4
 set     relativenumber
 set number
 set paste
-
+set expandtab
+set smarttab
 " Tab shortcuts
 nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
@@ -51,6 +56,14 @@ if bufwinnr(1)
 	map <Right>	<C-W>>
 	map <Left>	<C-W><
 endif
+
+" Error shortcuts
+nnoremap {	:lprevious<CR>
+nnoremap }	:lnext<CR>
+
+" Increment/decrement shortcuts
+nmap <silent> <unique> + <Plug>nextvalInc
+nmap <silent> <unique> - <Plug>nextvalDec
 
 " CTRL + hjkl for window movement
 map <C-J> <C-W>j
@@ -92,7 +105,12 @@ au BufRead,BufNewFile	*.conf	set filetype=conf
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:airline_section_error = 1
+let g:syntastic_enable_highlighting = 1
 let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_sort_aggregated_errors = 1
+let g:syntastic_python_checkers = ['pylint']
+
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
@@ -110,13 +128,20 @@ let g:airline_symbols.branch = 'Branch'
 let g:airline_symbols.paste = 'Paste'
 let g:airline_symbols.whitespace = ' '
 let g:airline_symbols.readonly = 'RO'
-
+let g:bufferline_echo=0
+let g:airline#extensions#tabline#show_buffers=1
+let g:airline#extensions#tabline#enabled = 1
+set fillchars+=stl:\ ,stlnc:\
 " airline symbols
 "let g:airline_right_alt_sep = ''
 "let g:airline_symbols.branch = ''
 "let g:airline_symbols.readonly = ''
 "let g:airline_symbols.linenr = ' '
 
+highlight SyntasticErrorLine ctermbg=122
+highlight SyntasticWarningLine ctermbg=123
+hi SpellBad ctermbg=1
+hi SpellCap ctermbg=3 ctermfg=0
 
 if v:version > '730'
 	"set statusline+=%#warningmsg#
@@ -131,9 +156,9 @@ if v:version > '730'
 	set runtimepath-=~/.vim/
 endif
 if v:version < '740'
-	let g:syntastic_always_populate_loc_list = 0
-	let g:syntastic_auto_loc_list = 0
-	let g:syntastic_check_on_open = 0
-	let g:syntastic_check_on_wq = 0
-	set runtimepath-=~/.vimc5/
+	"let g:syntastic_always_populate_loc_list = 0
+	"let g:syntastic_auto_loc_list = 0
+	"let g:syntastic_check_on_open = 0
+	"let g:syntastic_check_on_wq = 0
+	"set runtimepath-=~/.vimc5/
 endif
