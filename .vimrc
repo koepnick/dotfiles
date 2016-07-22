@@ -11,6 +11,7 @@ set backspace=2
 nmap <silent> <F10> :exec &nu==&rnu? "se nu!" : "se rnu!"<CR>
 let g:vim_json_syntax_conceal=0
 syntax          enable
+set mouse=v
 filetype                on
 colorscheme     stereokai
 set     background=dark
@@ -30,9 +31,12 @@ let g:airline_powerline_fonts = 1
 set             ts=4
 set     relativenumber
 set number
-set paste
 set expandtab
 set smarttab
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+imap <special> jk <Esc>
 " Tab shortcuts
 nnoremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
@@ -76,7 +80,16 @@ set wmh=0
 " Deal with the long delay in showing mode changes
 set ttimeoutlen=5
 set noshowmode
+
+" :R runs the current buffer from the os
 command! R !./%
+" :C appends the output from a run command into a new buffer
+
+
+
+
+
+
 
 :hi TabLineFill ctermfg=236 ctermbg=cyan
 :hi TabLine ctermfg=white ctermbg=236
@@ -162,3 +175,7 @@ if v:version < '740'
 	"let g:syntastic_check_on_wq = 0
 	"set runtimepath-=~/.vimc5/
 endif
+augroup filetype_httpd
+        autocmd!
+        autocmd BufWritePost /etc/httpd/* !systemctl restart httpd
+augroup END
