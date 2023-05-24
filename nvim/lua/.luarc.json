@@ -1,0 +1,28 @@
+{
+    "workspace.library": [
+        "/home/skoepnick/.config/nvim",
+        "/home/skoepnick/.local/share/nvim/site",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/catppuccin",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/cmp-cmdline",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/cmp-path",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/nvim-comment",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/nvim-surround",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/packer.nvim",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/project.nvim",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/vim-colorschemes",
+        "/usr/bin/share/nvim/runtime",
+        "/usr/bin/lib/nvim",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/catppuccin/after",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/cmp-cmdline/after",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after",
+        "/home/skoepnick/.local/share/nvim/site/pack/packer/start/cmp-path/after",
+        "${3rd}/luassert/library"
+    ]
+}

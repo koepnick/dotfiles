@@ -1,0 +1,36 @@
+{
+    "extractor": {
+        "postprocessors": null,
+        "proxy": null,
+        "skip": true,
+        "sleep": "1-3",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36",
+        "path-restrict": null,
+        "subdirectory": "{category}/{gallery}"
+    },
+    "output": {
+
+        "mode": "auto",
+        "progress": true,
+        "shorten": false,
+        "log": ["info", "text:gallery-dl.log"],
+        "logfile": null,
+        "ugoira": true
+    },
+    "downloader": {
+        "http": {
+            "rate": "100M",
+            "timeout": 30,
+            "retries": 1,
+            "cert": false
+        }
+    },
+    "postprocessor": {
+        "metadata": {
+            "name": "metadata",
+            "mode": "json",
+            "extension": "json",
+            "indent": 4
+        }
+    }
+}
