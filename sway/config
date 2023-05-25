@@ -1,0 +1,14 @@
+set $mod Mod4
+
+gaps outer 2
+gaps inner 2
+smart_gaps on
+
+include ../swaybar/dashboard.conf
+include ../swaybar/config
+include input.conf
+include keybindings.conf
+include windows.conf
+include fx.conf
+include fifo.conf
+include startup.conf
