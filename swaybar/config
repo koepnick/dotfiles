@@ -3,6 +3,11 @@ bar {
     # Keep in mind that the current directory of this config file is $HOME
     status_command while ~/.config/swaybar/scripts/status.py; do sleep 1; done
 
+    #separator {
+    #    symbol " "
+    #    background_color #FFFFFF
+    #}
+
     colors {
         # Text color of status bar
         statusline #ffffff
@@ -10,4 +15,5 @@ bar {
         background #323232
     }
     font pango:Anonymice Nerd Font 16
+#     font "pango:Anonymice Nerd Font 18, Font Awesome 6 Pro Thin"
 }
