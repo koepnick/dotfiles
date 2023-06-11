@@ -1,5 +1,6 @@
 {
     "extractor": {
+        "base-directory": "~/Data/rips/galleries",
         "postprocessors": null,
         "proxy": null,
         "skip": true,
