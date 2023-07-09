@@ -13,14 +13,6 @@ return {
 
     webgpu_power_preference = "LowPower",
 
-    webgpu_preferred_adapter = {
-        backend = "Gl",
-        device = 0,
-        device_type = "IntegratedGpu",
-        name = "Mesa Intel(R) Xe Graphics (TGL GT2)",
-        vendor = 32902,
-    },
-
     window_padding = {
         left = 10,
         right = 10,
@@ -91,7 +83,7 @@ return {
     enable_tab_bar = true,
     use_fancy_tab_bar = true,
     hide_tab_bar_if_only_one_tab = true,
-    enable_wayland = false,
+    enable_wayland = true,
     switch_to_last_active_tab_when_closing_tab = true,
     command_palette_font_size = 12.0,
     -- In tmux this generates multiple "up" events
