@@ -1,0 +1,51 @@
+---
+commands:
+  img:
+    command: swayimg
+    basedir: "~/.config/halp/"
+  pdf: 
+    command: zathura
+    basedir: "~/.config/halp/"
+  tui:
+    command: "alacritty --class AlacrittyTUI --command "
+
+
+menus:
+  items:
+    - title: "System Utilities"
+      items:
+        - title: "System Monitor"
+          action: tui
+          command: "btop"
+        - title: "Kernel Monitor"
+          action: tui
+          command: "kmon"
+        - title: "Network Monitor"
+          action: tui
+          command: "neoss"
+        - title: "USB Monitor"
+          action: tui
+          command: "usbtop"
+        - title: "Services (User)"
+          action: tui
+          command: "sysz"
+    - title: "Utilities"
+      items:
+        - title: "ChatGPT"
+          action: tui
+          command: "catui"
+        - title: "App ID"
+          action: command
+          command: "sh /home/skoepnick/.config/sway/scripts/get_appid.sh"
+    - title: "Cheatsheets"
+      items:
+        - title: Demo
+          action: img
+          path: test.png 
+    - title: "Halp"
+      items:
+        - title: "Python"
+          items:
+            - title: "PDB"
+              action: pdf
+              path: 'test.pdf'
