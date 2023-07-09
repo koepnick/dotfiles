@@ -4,11 +4,25 @@ gaps outer 2
 gaps inner 2
 smart_gaps on
 
-include ../swaybar/dashboard.conf
-include ../swaybar/config
+font pango:FuraCode Nerd Font 11
+# Gestures: ../fusuma/config.yml
+# Displays: ../kanshi/config
+# Services: ../systemd/
+
+exec systemctl --user --import-environment SWAYSOCK
+
+#include ../swaybar/dashboard.conf
+#include ../swaybar/config
 include input.conf
 include keybindings.conf
+include gestures.conf
+include modes.conf
 include windows.conf
 include fx.conf
 include fifo.conf
 include startup.conf
+
+exec sh -c "startup.sh"
+
+#exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec rm -f /tmp/sov.sock && mkfifo /tmp/sov.sock && tail -f /tmp/sov.sock | sov -t 500
