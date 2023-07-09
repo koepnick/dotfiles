@@ -4,5 +4,11 @@ profile {
 }
 
 profile work {
-	output LVDS-1 enable scale 2
+  output "Dell Inc. DELL U2520D 7GDQ823" mode 2560x1440@59.994Hz position 0,0 scale 1.0 transform normal 
+  output "Sharp Corporation 0x14FA Unknown" mode 3840x2400@59.994Hz position 340,1440 scale 2.0 transform normal 
+
+  # Offset = (width_of_origin // 2) - (width_of_child // 2 // scale)
+  #          (2560 // 2) - (3840 // 2 // 2.0)
+  #          1280 - 960
+  #          320
 }

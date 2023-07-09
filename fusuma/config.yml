@@ -1,0 +1,27 @@
+swipe:
+  3:
+    left:
+      command: "echo 'key alt+Right' > /tmp/dotool-pipe" # History forward
+    right:
+      command: "echo 'key alt+Left' > /tmp/dotool-pipe" # History back
+    up:
+      command: "echo 'key super' > /tmp/dotool-pipe" # Activity
+    down:
+      command: "echo 'key super' > /tmp/dotool-pipe" # Activity
+  4:
+    left:
+      command: "echo 'key super+h' > /tmp/dotool-pipe" # Switch to next workspace
+    right:
+      command: "echo 'key super+l' > /tmp/dotool-pipe" # Switch to previous workspace
+    up:
+      command: "echo 'key ctrl+alt+Down' > /tmp/dotool-pipe" # Switch to next workspace
+    down:
+      command: "key ctrl+alt+Up" # Switch to previous workspace
+pinch:
+  in:
+    command: "keydown ctrl click 4 keyup ctrl" # Zoom in
+  out:
+    command: "keydown ctrl click 5 keyup ctrl" # Zoom out
+hold:
+  4:
+    command: "key super" # Activity

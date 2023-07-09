@@ -1,0 +1,16 @@
+# ~/.config/waybar/config
+
+{
+    "position": "top",
+    "modules-left": [
+        "custom-module"
+    ],
+    "modules-right": [
+        "clock"
+    ],
+    "custom-module": {
+        "type": "custom/text",
+        "exec": "<your_custom_script>"
+    }
+}
+

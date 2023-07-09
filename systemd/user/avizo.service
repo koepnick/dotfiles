@@ -1,0 +1,10 @@
+[Unit]
+Description=Start Avizo
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/avizo-service
+
+[Install]
+WantedBy=sway-session.target

@@ -1,0 +1,60 @@
+[global]
+    font = FiraCode Nerd Font Mono 18
+    allow_markup = yes
+    markup = full
+    width = (600,1000)
+    follow = mouse
+    origin = top-center
+    background = "#103747CC"
+    format = "<b>%s</b>\n\n%b"
+    show_indictators = yes
+    padding = 18
+    horizontal_padding = 20
+    sort = yes
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = close_all
+    mouse_right_click = close_current
+    corner_radius = 20
+    gap_size = 10
+
+[shortcuts]
+    close = alt+space
+    close_all = ctrl+shift+space
+    context = ctrl+shift+period
+    history = ctrl+shift+comma
+
+[urgency_critical]
+    background = "#DE3826CC"
+    frame_color = "#FF5947FF"
+
+[urgency_normal]
+    timeout = 90
+
+[urgency_low]
+    background = "#1C7F95CC"
+    foreground = "#EEEEEEFF"
+    timeout = 30
+
+[summary_warn]
+    summary = "warn"
+    format = "<span size='180%' weight="bold" > </span> %b"
+    background = "#BFC06CDD"
+    timeout = 0
+
+[summary_info]
+    summary = "info"
+    format = "<span size='180%' weight="bold" > </span> %b"
+    background = "#1C7F95CC"
+    timeout = 30
+
+[summary_script]
+    summary = "script"
+    format = "<span size='180%' weight="bold" > </span> %b"
+    background = "#80868ACC"
+    timeout = 30
+
+[summary_error]
+    summary = "error"
+    format = "<span size='180%' weight="bold" > </span> %b"
+    background = "#B23935CC"
+    timeout = 0

@@ -1,0 +1,10 @@
+[Unit]
+Description=Start Kanshi
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/kanshi
+
+[Install]
+WantedBy=sway-session.target

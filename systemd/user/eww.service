@@ -1,0 +1,10 @@
+[Unit]
+Description=Start Avizo
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart= /opt/cargo/bin/eww daemon --no-daemonize
+
+[Install]
+WantedBy=sway-session.target
