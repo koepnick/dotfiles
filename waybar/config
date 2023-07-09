@@ -1,0 +1,100 @@
+{
+    "position": "top",
+    "layer": "top",
+    "height": 58,
+    "modules-right": ["tray", "backlight", "pulseaudio", "clock", "battery"],
+    "modules-center": ["sway/window"],
+    "modules-left": ["sway/workspaces#inactive"],
+    "tray": {
+        "icon-size": 23,
+        "spacing": 20,
+    },
+    "sway/workspaces#active": {
+        "format": "{name} :: ",
+        "disable-markup": true,
+        "current-only": true
+    },
+    "sway/workspaces#inactive": {
+        "format": "{name}",
+        "persistent_workspaces": {
+            "9": []
+        },
+    },
+    "pulseaudio": {
+        "format": "{icon}<span size='8pt' rise='-5pt'>{volume}%</span>",
+        "format-icons": [
+            "󰝟",
+            "",
+            "󰖀",
+            "",
+            "󰕾"
+            
+        ],
+        "scroll-step": 1,
+        "on-click": "pavucontrol"
+    },
+    "sway/window": {
+        "max-length": 80,
+        "rewrite": {
+            "(.*) Mozilla Firefox": " $1"
+        }
+    },
+    "sway/mode": {
+        "tooltip": true,
+        "format": "<span weight=\"bold\">{name}</span>"
+    },
+    "clock": {
+        "format": "╠ {:%a %b %d, 20%y %H:%M} ╣",
+        "tooltip": false
+    },
+    "battery": {
+        "format": "{icon}<span size='10pt' color='#eeeeee' rise='-5pt'>{capacity}%</span>",
+        "format-alt": "{time} {icon}",
+        "states": {
+            "good": 90,
+            "warning": 30,
+            "critical": 15
+        },
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󱟢"
+        ]
+
+    },
+    "backlight": {
+        "format": "{icon}<span size='8pt' rise='-5pt'>{percent}%</span>",
+        "format-icons": [
+            "󰃚",
+            "󰃛",
+            "󰃜",
+            "󰃝",
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ]
+    },
+    "custom/sway-scratch": {
+        "interval": 1,
+        "return-type": "json",
+        "format" : "{icon}",
+        "format-icons": {
+            "none": "",
+            "one": "",
+            "many": "",
+            "unknown": ""
+        },
+        "exec": "~/.config/waybar/modules/sway-scratch.sh",
+        "exec-if": "exit 0",
+        "on-click": "swaymsg scratchpad show",
+        "on-click-right": "swaymsg move window to scratchpad",
+        "tooltip": false
+    },
+}

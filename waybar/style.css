@@ -1,0 +1,111 @@
+@import "themes/dark.css";
+/* #custom-sway-scratch.many { */
+    /* color: rgba(86, 182, 194, 1); */
+/* } */
+
+/* #custom-sway-scratch.one { */
+    /* color: rgba(97, 175, 239, 1); */
+/* } */
+* {
+  /* reference the color by using @color-name */
+  color: @text;
+}
+
+window#waybar {
+  /* you can also GTK3 CSS functions! */
+  background-color: shade(@base, 0.9);
+  border: 2px solid alpha(@crust, 0.3);
+}
+
+* {
+    font-size: 1.05em;
+    font-family: Lilex Nerd Font Propo;
+    /* Use `fc-list : family` to get the name */
+}
+
+#window {
+    font-size: 0.90em;
+    letter-spacing: 0.2px;
+}
+
+.modules-left {
+    border-radius: 12px;
+    margin: 1px 0 0 8px;
+    background-color: #080D2A;
+}
+
+/* Workspace */
+/* 
+   {value}
+   {name}
+   {icon}   defined in format-icons
+   {index}
+*/
+#workspaces {
+    margin-left: 12px;
+}
+#battery{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+#battery.critical:not(.charging) {
+  /* background-color: #f53c3c; */
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#pulseaudio {
+    padding: 0 25px;
+}
+#battery.good {
+    color: #009900;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+#battery.warning {
+    background-color: #0FF000;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+#backlight {
+    padding: 0 10px;
+}
+#backlight.percent {
+    background-color: #FF0000;
+}
+#workspaces button {
+    padding: 0 5px;
+    color: rgba(35,31,32,0.85);
+}
+
+#workspaces button.active {
+    /* color: rgba(2, 2, 6, 1); */
+    background-color: #000000;
+}
+#workspaces button.visible {
+    /* This is the active workspace */
+    border-bottom-color: #0000FF;
+    border-width: 5px;
+}
+#workspaces button.selected {
+    color: rgba(2, 216, 216, 1);
+    background-color: #000000;
+    border: green;
+}
+#workspaces button:hover {
+    color: rgba(217, 216, 2, 1);
+}
+#workspaces button.focused {
+    color: rgba(2, 26, 2, 1);
+}
+#workspaces.active {
+    background-color: #333333;
+    border-bottom-color: #FF00FF;
+    border-width: 0px;
+}
+
