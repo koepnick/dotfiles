@@ -1,0 +1,19 @@
+-f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best'
+--all-subs
+--sub-format src
+--sub-lang en
+--write-thumbnail
+--continue
+--no-overwrites
+--write-info-json
+--write-annotations
+--cache-dir ~/.local/cache/yt-dlp
+--restrict-filenames
+--buffer-size 512k
+--user-agent ""
+--referer "https://bing.com"
+--no-check-certificate
+--recode-video mp4
+--embed-subs
+--embed-thumbnail
+--add-metadata
