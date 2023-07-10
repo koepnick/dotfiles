@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for i in ~/.config/environment.d/*.conf ; do source ${i} ; done
+
+systemctl --user import-environment
+sway --unsupported-gpu
