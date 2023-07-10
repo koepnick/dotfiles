@@ -1,6 +1,6 @@
 [Unit]
 Description=Start Avizo
-PartOf=graphical-session.target
+PartOf=sway-session.target
 
 [Service]
 Type=simple
