@@ -10,9 +10,12 @@ font pango:FuraCode Nerd Font 11
 # Services: ../systemd/
 
 exec systemctl --user --import-environment SWAYSOCK
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 
 #include ../swaybar/dashboard.conf
 #include ../swaybar/config
+include services.conf
 include input.conf
 include keybindings.conf
 include gestures.conf
