@@ -1,5 +1,6 @@
 export QT_QPA_PLATFORM="wayland;xcb"
 export QT_QPA_PLATFORMTHEME=qt5ct
+export MOZ_ENABLE_WAYLAND=1
 
 export SDL_VIDEODRIVER="wayland,x11"
 

@@ -1,3 +1,4 @@
+exec_always "pgrep -x swaysome || /sbin/swaysome init 1 > ~/.local/logs/swaysome.log"
 set $mod Mod4
 
 gaps outer 2
@@ -25,7 +26,7 @@ include fx.conf
 include fifo.conf
 include startup.conf
 
-exec sh -c "startup.sh"
+exec_always "sh -c 'startup.sh'"
 
 #exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec rm -f /tmp/sov.sock && mkfifo /tmp/sov.sock && tail -f /tmp/sov.sock | sov -t 500

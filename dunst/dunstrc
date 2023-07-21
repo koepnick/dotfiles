@@ -58,3 +58,8 @@
     format = "<span size='180%' weight="bold" > </span> %b"
     background = "#B23935CC"
     timeout = 0
+
+[ignore]
+    summary = "Transfers finished"
+    format = ""
+    timeout = 1
