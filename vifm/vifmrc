@@ -1,17 +1,3 @@
-" vim: filetype=vifm :
-" Sample configuration file for vifm (last updated: 8 August, 2022)
-" You can edit this file by hand.
-" The " character at the beginning of a line comments out the line.
-" Blank lines are ignored.
-" The basic format for each item is shown with an example.
-
-" ------------------------------------------------------------------------------
-" Main settings
-" ------------------------------------------------------------------------------
-
-" Command used to edit files in various contexts.  The default is vim.
-" If you would like to use another vi clone such as Elvis or Vile
-" you will need to change this setting.
 if executable('nvim')
     set vicmd=nvim
 elseif executable('vim')
@@ -62,6 +48,7 @@ set vimhelp
 
 " If you would like to run an executable file when you
 " press Enter, l or Right Arrow, set this.
+" set runexec
 set norunexec
 
 " List of color schemes to try (picks the first one supported by the terminal)
@@ -110,8 +97,10 @@ set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
 
 " :mark mark /full/directory/path [filename]
 
-mark b ~/bin/
+mark c ~/.config/
 mark h ~/
+mark l ~/.local/
+mark o /opt/
 
 " ------------------------------------------------------------------------------
 " Commands
@@ -142,44 +131,13 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart full
 
-" ------------------------------------------------------------------------------
-" File types association
-" ------------------------------------------------------------------------------
+source ~/.config/vifm/configs/filetype_pdf.vim
+source ~/.config/vifm/configs/filetype_json.vim
+source ~/.config/vifm/configs/filetype_db.vim
+source ~/.config/vifm/configs/mimetype_images.vim
+source ~/.config/vifm/configs/mimetype_videos.vim
+source ~/.config/vifm/configs/mimetype_compressed.vim
 
-" :filetype pattern1,pattern2 defaultprogram,program2
-" :fileviewer pattern1,pattern2 consoleviewer
-"
-" The first entry is the default program to be used with a matching file.
-" The other programs for the file type can be accessed via :file command.
-" The command macros like %f, %F, %d, %D may be used in the commands.
-" The %a macro is ignored.  To use a % you must put %%.
-" Spaces in an app name must be escaped, for example: QuickTime\ Player.app
-
-" For automated FUSE mounts, you must register an extension with :file[x]type
-" in one of the following formats:
-"
-" :filetype patterns FUSE_MOUNT|mount_cmd %SOURCE_FILE %DESTINATION_DIR
-"
-" %SOURCE_FILE and %DESTINATION_DIR are filled in at runtime.
-"
-" Example:
-"   :filetype *.zip,*.[jwe]ar FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR
-"
-" :filetype patterns FUSE_MOUNT2|mount_cmd %PARAM %DESTINATION_DIR
-"
-" %PARAM and %DESTINATION_DIR are filled in at runtime.
-"
-" Example:
-"   :filetype *.ssh FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR
-"
-" %PARAM value is the first line of the matched file, example: root@127.0.0.1:/
-"
-" You can also add %CLEAR if you want to clear screen before running FUSE
-" program.  There is also %FOREGROUND, which is useful for entering passwords.
-
-" Pdf
-filextype {*.pdf},<application/pdf> zathura %c %i &, apvlv %c, xpdf %c
-fileviewer {*.pdf},<application/pdf> pdftotext -nopgbrk %c -
 
 " PostScript
 filextype {*.ps,*.eps,*.ps.gz},<application/postscript>
@@ -208,25 +166,6 @@ fileviewer {*.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,
            \*.aac}
          \ ffprobe -hide_banner -pretty %c 2>&1
 
-" Video
-filextype {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-          \*.as[fx]},
-         \<video/*>
-        \ {View using ffplay}
-        \ ffplay -fs -hide_banner -autoexit %f,
-        \ {View using Dragon}
-        \ dragon %f:p,
-        \ {View using mplayer}
-        \ mplayer %f,
-        \ {Play using mpv}
-        \ mpv --no-video %c %s,
-fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-           \*.as[fx]},
-          \<video/*>
-         \ ffprobe -hide_banner -pretty %c 2>&1
-
 " Web
 filextype {*.xhtml,*.html,*.htm},<text/html>
         \ {Open with qutebrowser}
@@ -242,24 +181,6 @@ filetype {*.o},<application/x-object> nm %f | less
 filetype {*.[1-8]},<text/troff> man ./%c
 fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
-" Images
-"filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-"        \ {View in sxiv}
-"        \ sxiv %f,
-"        \ {View in gpicview}
-"        \ gpicview %c,
-"        \ {View in shotwell}
-"        \ shotwell,
-"fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-"         \ identify %f
-filetype *.bmp,*.jpg,*.jpeg,*.png,*.xpm open -a Preview %f &
-"fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.xpm
-"    \ kitty +kitten icat --transfer-mode=file --place=%pwx%ph@%pxx%py %c %N
-"    \ %pc
-"    \ kitty +kitten icat --transfer-mode=file --place=%pwx%ph@%pxx%py --clear %N
-
-fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
-   \ sixel %c %pw %ph %pd
 
 " OpenRaster
 filextype *.ora
@@ -368,10 +289,6 @@ filetype *.tudu tudu -f %c
 " Qt projects
 filextype *.pro qtcreator %f &
 
-" Directories
-filextype */
-        \ {View in thunar}
-        \ Thunar %f &,
 
 " Syntax highlighting in preview
 "
@@ -388,7 +305,6 @@ filextype */
 " fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
 
 " Displaying pictures in terminal
-" fileviewer *.jpg,*.png shellpic %c
 
 " Open all other files with default system programs (you can also remove all
 " :file[x]type commands above to ensure they don't interfere with system-wide
@@ -545,10 +461,6 @@ nnoremap <c-u> <c-w>x
 
 " https://github.com/cirala/vifm_devicons
 
- fileviewer *.pdf
-        \ vifmimg pdf %px %py %pw %ph %c
-        \ %pc
-        \ vifmimg clear
 
     fileviewer *.djvu
         \ vifmimg djvu %px %py %pw %ph %c
@@ -560,15 +472,7 @@ nnoremap <c-u> <c-w>x
         \ %pc
         \ vifmimg clear
 
-    fileviewer <video/*>
-        \ vifmimg video %px %py %pw %ph %c
-        \ %pc
-        \ vifmimg clear
 
-    fileviewer <image/*>
-        \ viu %px %py %pw %ph %c
-        \ %pc
-"        \ vifmimg clear
 
     fileviewer <audio/*>
         \ vifmimg audio %px %py %pw %ph %c
@@ -581,4 +485,10 @@ nnoremap <c-u> <c-w>x
         \ vifmimg clear
 
 
-nnoremap w :view<cr>
+nnoremap ww :view<cr>
+nnoremap wm :! mpv %d<cr>
+nnoremap ws :! swayimg --fullscreen %d<cr>
+nnoremap <silent><c-p> <c-w><c-w>A<c-w><c-w>
+nnoremap <silent><c-l> <c-w><c-w>l
+nnoremap <silent><c-h> <c-w><c-w>h
+set suggestoptions=marks,registers
