@@ -17,7 +17,7 @@
     "sway/workspaces#inactive": {
         "format": "{name}",
         "persistent_workspaces": {
-            "9": []
+            "0": []
         },
     },
     "pulseaudio": {
