@@ -21,6 +21,7 @@ include input.conf
 include keybindings.conf
 include gestures.conf
 include modes.conf
+include workspaces.conf
 include windows.conf
 include fx.conf
 include fifo.conf
@@ -28,5 +29,9 @@ include startup.conf
 
 exec_always "sh -c 'startup.sh'"
 
+set $wsdash 0:󱒌
+
+
 #exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec rm -f /tmp/sov.sock && mkfifo /tmp/sov.sock && tail -f /tmp/sov.sock | sov -t 500
+
