@@ -101,6 +101,7 @@ mark c ~/.config/
 mark h ~/
 mark l ~/.local/
 mark o /opt/
+mark d ~/Data
 
 " ------------------------------------------------------------------------------
 " Commands
@@ -131,6 +132,7 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart full
 
+source ~/.config/vifm/configs/filetype_directory.vim
 source ~/.config/vifm/configs/filetype_pdf.vim
 source ~/.config/vifm/configs/filetype_json.vim
 source ~/.config/vifm/configs/filetype_db.vim
