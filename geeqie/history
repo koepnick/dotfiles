@@ -1,0 +1,24 @@
+#History lists
+
+[image_list]
+"/home/skoepnick/Data/24.167.43.53/volume(sda2)/Photos1/pics/000_0244.JPG"
+"/home/skoepnick/fdisk.pdf"
+"/home/skoepnick/Data/172.101.162.161/WD Passport/My Pictures/Emily/IMG_0984.JPG"
+
+[shortcuts]
+"Home[path]/home/skoepnick"
+"Desktop[path]/home/skoepnick/Desktop"
+"Collections[path]/home/skoepnick/.local/share/geeqie/collections"
+
+[path_list]
+"/home/skoepnick/Data/24.167.43.53/volume(sda2)/Photos1/pics"
+"/home/skoepnick/.config"
+"/home/skoepnick/Install"
+"/home/skoepnick"
+"/home/skoepnick/Data"
+"/home/skoepnick/Data/172.101.162.161"
+"/home/skoepnick/Data/172.101.162.161/WD Passport"
+"/home/skoepnick/Data/172.101.162.161/WD Passport/My Pictures"
+"/home/skoepnick/Data/172.101.162.161/WD Passport/My Pictures/Emily"
+
+#end
