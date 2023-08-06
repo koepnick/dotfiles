@@ -1,0 +1,17 @@
+---
+
+- name: Pacman
+  hosts: localhost
+  become: yes
+  vars_files:
+    - vars/packages.yml
+  tasks:
+    - name: Update package lists
+      pacman:
+        update_cache: yes
+
+    - name: Install packages by category
+      pacman:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ vars[category] }}"

@@ -1,0 +1,61 @@
+---
+core:
+development:
+  - meson
+  - ninja
+  - gcc
+  - git
+  - subversion
+  - mercurial
+  - make
+  - minicom
+  - cmake
+  - android-tools
+  - ctags
+  - boost
+  - python-gobject
+
+gui:
+  - qutebrowser
+  - wezterm
+
+wm:
+  - light            # Backlight and keyboard light control
+  - wofi             # Wayland menu system
+  - wev              # Dump input events
+  - kanshi           # Monitor layout detection
+  - waybar           # Top bar
+  - slurp            # Screen recording
+  - grim             # Screen capture
+  - dunst            # Notification daemon
+  # - wayr  # Better switching
+  # - eww            # Standalone widgets
+  # - avizo          # Volume and brightness overlay
+  # - clipman
+enchancements:
+  - exa
+  - ripgrep
+  - dust
+  - systeroid  # systemctl
+  - bat # cat
+  - fd # find
+    #  - neoss
+    #  - sysz
+essential:
+  - vim
+    #- multitail
+  - figlet
+  - jq
+  - jqp
+  - fx  # JSON TUI
+  - autofs
+  - pacman-contrib
+  - python-virtualenv
+  # - appimagelauncher
+  - glow
+  - tk
+  - libsixel
+  - gpg-tui
+  - catimg
+  - direnv
+  # - lsix-git
