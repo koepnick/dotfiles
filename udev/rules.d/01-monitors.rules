@@ -1,0 +1,1 @@
+ACTION=="change", SUBSYSTEM="drm", RUN+="sh -c 'echo hi > /tmp/mon'"
