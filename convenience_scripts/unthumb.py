@@ -3,7 +3,7 @@ import os
 import math
 import sys
 
-def create_image_montage(directory, output='/tmp/thumbs/montage.png'):
+def create_image_montage(directory, output='/tmp/montage.png'):
     # Get a list of all image file paths in the directory
     images = [os.path.join(directory, img) for img in os.listdir(directory) if img.endswith((".png", ".jpg", ".jpeg"))]
 
@@ -17,6 +17,7 @@ def create_image_montage(directory, output='/tmp/thumbs/montage.png'):
             sharpened_image = opened_image.filter(ImageFilter.SHARPEN)
             
             img_open.append(sharpened_image)
+            print("Appended")
         except UnidentifiedImageError:
             print(f'Warning: Could not open image {img}. It might be corrupted.')
         except OSError:

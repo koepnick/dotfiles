@@ -13,6 +13,6 @@ mkdir -p ${CACHE_DIR}
 rm -rf ${CACHE_DIR}/output
 foremost -t jpeg,png -d -a ${CACHE_DIR}/Thumbs.db -o ${CACHE_DIR}/output
 
-python ~/.config/convenience_scripts/unthumb.py /tmp/montage.png # ${CACHE_DIR}/output/jpg
+python ~/.config/convenience_scripts/unthumb.py ${CACHE_DIR}/output/jpg
 
 swayimg /tmp/montage.png # ${CACHE_DIR}/output/jpg/montage.png

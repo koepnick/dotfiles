@@ -1,8 +1,11 @@
+*.log
+cache
 chromium
 menus
 pudb/saved-breakpoints*
 pudb/shell-history
-filezilla
+filezilla/lockfile
+filezilla/queue.sqlite3
 plugin
 ibus
 dconf
@@ -15,3 +18,12 @@ Signal
 Slack
 autostart
 Qt*
+vifm/vifminfo.json
+zoom*
+discord
+proton*
+inkscape
+gtk*
+images/*
+GIMP
+bash/secret*
