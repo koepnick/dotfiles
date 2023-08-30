@@ -1,0 +1,41 @@
+---
+version: "3.8"
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    volumes:
+      - ${HOME}/.local/docker/data/communications/redis/data:/data
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    restart: unless-stopped
+    volumes:
+      - ${HOME}/.local/docker/data/communications/mongo/db:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 100.1kthx
+
+  mongo-express:
+    image: mongo-express
+    restart: unless-stopped
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 100.1kthx
+      ME_CONFIG_MONGODB_URL: mongodb://admin:100.1kthx@mongo:27017/
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ${HOME}/.local/docker/data/communications/mosquitto/data:/mosquitto/data
+      - ${HOME}/.local/docker/data/communications/mosquitto/config:/mosquitto/config
+      - ${HOME}/.local/docker/data/communications/mosquitto/log:/mosquitto/log
