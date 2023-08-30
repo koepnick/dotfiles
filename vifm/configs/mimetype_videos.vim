@@ -1,8 +1,8 @@
 " Video
-filetype ,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,*.mov,*.avi,*.flv,*.mts
+filetype ,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,*.mov,*.avi,*.flv,*.mts,*.m4v,*.thm
          \ /sbin/mpv %f &,
 
-fileview ,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,*.mov,*.avi,*.flv,*.mts /sbin/mediainfo %f
+fileview ,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,*.mov,*.avi,*.flv,*.mts,*.m4v,*.thm /sbin/mediainfo %f
 "fileviewer {*.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 "           \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
 "           \*.as[fx]},

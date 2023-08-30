@@ -1,0 +1,9 @@
+# vim: ft=ini
+
+scale = fit
+info = yes
+all = yes
+sort = size
+
+[keys]
+q = quit

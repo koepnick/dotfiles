@@ -1,0 +1,26 @@
+---
+video:
+  icon: ""
+  extensions:
+    - mp4
+    - mov
+    - flv
+    - wmv
+    - avi
+    - thm
+    - m4v
+    - 3gp
+    - ts
+
+image:
+  icon: ""
+  extensions:
+    - jpeg
+    - jpg
+    - gif
+    - tif
+    - tiff
+    - png
+    - heic
+    - webm
+    - nef  

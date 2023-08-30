@@ -1,0 +1,14 @@
+[c]olumn count
+[C]olumn view
+[f]ind
+[r]uler toggle
+[s]ort
+    g   - group
+    s|S - size
+    n|N - name
+    t|T - time
+    e|E - extension
+
+
+| #       |  Toggle Number   |
+| Ctrl-h  |  Toggle dotfiles |

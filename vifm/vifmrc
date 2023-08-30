@@ -1,4 +1,7 @@
-if executable('nvim')
+" vim: ft=vim
+if executable('neovide')
+    set vicmd=neovide
+elseif executable('nvim')
     set vicmd=nvim
 elseif executable('vim')
     set vicmd=vim
@@ -24,6 +27,7 @@ set syscalls
 " I recommend not changing this until you are familiar with vifm.
 " This probably shouldn't be an option.
 set trash
+set trashdir=/dev/null
 
 " What should be saved automatically on restarting vifm.  Drop "savedirs"
 " value if you don't want vifm to remember last visited directories for you.
@@ -31,13 +35,14 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
             \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 " This is how many directories to store in the directory history.
-set history=100
+set history=10000
 
 " Automatically resolve symbolic links on l or Enter.
 set nofollowlinks
 
 " Natural sort of (version) numbers within text.
 set sortnumbers
+set number
 
 " Maximum number of changes that can be undone.
 set undolevels=100
@@ -52,7 +57,7 @@ set vimhelp
 set norunexec
 
 " List of color schemes to try (picks the first one supported by the terminal)
-colorscheme Default-256 Default
+colorscheme nord gruvbox Default-256 Default
 
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
@@ -85,11 +90,11 @@ set scrolloff=4
 
 " Don't do too many requests to slow file systems
 if !has('win')
-    set slowfs=curlftpfs
+    set slowfs=curlftpfs,sshfs
 endif
 
 " Set custom status line look
-set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+set statusline="  Hit: %z%= %A %10u:%-7g %15s %20d  "
 
 " ------------------------------------------------------------------------------
 " Bookmarks
@@ -488,9 +493,55 @@ nnoremap <c-u> <c-w>x
 
 
 nnoremap ww :view<cr>
-nnoremap wm :! mpv %d<cr>
-nnoremap ws :! swayimg --fullscreen %d<cr>
+nnoremap wm :! mpv %f<cr>
+nnoremap wM :! mpv %d<cr>
+nnoremap ws :! swayimg --fullscreen %f<cr>
+nnoremap wS :! swayimg --fullscreen %d<cr>
+nnoremap wi :! imv %f<cr>
 nnoremap <silent><c-p> <c-w><c-w>A<c-w><c-w>
 nnoremap <silent><c-l> <c-w><c-w>l
 nnoremap <silent><c-h> <c-w><c-w>h
+nnoremap <silent>M :marks<cr>
+nnoremap fd :filter=^. | echo "Filtering dot files"<cr>
+nnoremap F :find *.
+nnoremap TT :tabnew<cr>
+nnoremap Tt :tabnew<cr>
+nnoremap Tn :tabnext<cr>
+nnoremap Tp :tabprev<cr>
+nnoremap sg :set sort=groups<cr>
+nnoremap se :set sort=-fileext<cr>
+nnoremap sE :set sort=fileext<cr>
+nnoremap ss :set sort=-size<cr>
+nnoremap sS :set sort=size<cr>
+nnoremap st :set sort=mtime<cr>
+nnoremap sT :set sort=-mtime<cr>
+nnoremap sn :set sort=iname<cr>
+nnoremap sN :set sort=-iname<cr>
+nnoremap Si :select *.jpg,*.JPG,*.JPEG,*.jpeg,*.png,*.PNG<cr>
+nnoremap SI :select *.jpg,*.JPG,*.JPEG,*.jpeg,*.png,*.PNG<cr>
+nnoremap SM :select *.mov,*.MOV,*.mp4,*.MP4,*.avi,*.AVI,*.3gp,*.3GP<cr>
+nnoremap SI :select *.jpg,*.JPG,*.JPEG,*.jpeg,*.png,*.PNG | !imv %"f <cr>
+
+nnoremap Pi !$(imv-msg $(cat ~/.local/imv/latest.pid) "open %f")
+nnoremap sM :select *.mov,*.MOV,*.mp4,*.MP4,*.avi,*.AVI,*.3gp,*.3GP | !mpv %"f <cr>
 set suggestoptions=marks,registers
+set dirsize=nitems
+set statusline="%N %:pwd %= Sort: %{&sort} %[| %{&sortgroups}%]"
+set rulerformat='%2l- %= %-[%x filtered%] %-l/%L %P'
+command mvim mvim %f
+command halp bat ~/.config/vifm/halp.txt %m
+nnoremap # :set number!<cr>
+nnoremap C1 :set lsoptions=columncount:1<cr>
+nnoremap C2 :set lsoptions=columncount:2<cr>
+nnoremap C3 :set lsoptions=columncount:3<cr>
+nnoremap <c-h> :set dotfiles!<cr>
+set cpoptions=s
+set viewcolumns=*{name}..,12{size}
+nnoremap c1 :set viewcolumns=*{name}..,6{size} <cr>
+nnoremap c2 :set viewcolumns=*{name}..,6{mtime} <cr>
+nnoremap fm :!fd -e mov -e avi -e mp4 -e m4v -e 3gp %u<cr>
+nnoremap fi :!fd -e jpg -e jpeg -e png -e gif %u<cr>
+nnoremap  ; :!~/.config/vifm/scripts/summarize_directory.py %c %pw %q<cr>
+nnoremap J 5j
+nnoremap K 5k
+nnoremap <space> :select!<cr>

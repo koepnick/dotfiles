@@ -1,3 +1,6 @@
 [submodule "tmux/plugins/tmux-fuzzback"]
 	path = tmux/plugins/tmux-fuzzback
 	url = https://github.com/roosta/tmux-fuzzback
+[submodule "vifm/colors"]
+	path = vifm/colors
+	url = https://github.com/vifm/vifm-colors

@@ -129,12 +129,15 @@ def load_data(filename):
 if __name__ == '__main__':
     image_hash, image_data = load_data(target)
     cached = retrieve(image_hash)
-    if not cached:
-        _, image_data = thumbnail(target, 300, 500)
-        persist(image_hash, image_data)
-        cached = retrieve(image_hash)
+    try:
+        if not cached:
+            _, image_data = thumbnail(target, 300, 500)
+            persist(image_hash, image_data)
+            cached = retrieve(image_hash)
 
-    with open('/tmp/preview.png', 'wb+') as fh:
-        fh.write(cached)
+        with open('/tmp/preview.png', 'wb+') as fh:
+            fh.write(cached)
+    except TypeError:
+        pass
     # save_preview(cached, '/tmp/preview.png')
    # subprocess.run(["img2sixel", "/tmp/preview.png"])
