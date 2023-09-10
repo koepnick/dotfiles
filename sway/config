@@ -1,4 +1,5 @@
-exec_always "pgrep -x swaysome || /sbin/swaysome init 1 > ~/.local/logs/swaysome.log"
+# exec_always "pgrep -x swaysome || /sbin/swaysome init 1 > ~/.local/logs/swaysome.log"
+exec_always "${HOME}/.config/sway/startup.sh"
 set $mod Mod4
 
 gaps outer 2
@@ -25,9 +26,8 @@ include workspaces.conf
 include windows.conf
 include fx.conf
 include fifo.conf
-include startup.conf
+#include startup.conf
 
-exec_always "sh -c 'startup.sh'"
 
 set $wsdash 0:󱒌
 
