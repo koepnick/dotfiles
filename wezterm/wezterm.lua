@@ -77,7 +77,7 @@ return {
     color_scheme = 'Pnevma',
     check_for_updates = false,
     show_update_window = false,
-    font_size = 12.0,
+    font_size = 16.0,
     max_fps = 144,
     animation_fps = 30,
     enable_tab_bar = true,
@@ -85,7 +85,7 @@ return {
     hide_tab_bar_if_only_one_tab = true,
     enable_wayland = true,
     switch_to_last_active_tab_when_closing_tab = true,
-    command_palette_font_size = 12.0,
+    command_palette_font_size = 16.0,
     -- In tmux this generates multiple "up" events
     -- alternate_buffer_wheel_scroll_speed = 3,
 
@@ -97,7 +97,7 @@ return {
     default_cursor_style = 'BlinkingBar',
 
     -- Fonts
-    dpi = 120.0,
+    -- dpi = 196.0,
     freetype_load_target = "Light",
     freetype_render_target = "HorizontalLcd",
     font = wezterm.font_with_fallback {
