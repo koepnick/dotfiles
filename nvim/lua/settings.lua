@@ -12,3 +12,5 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 vim.cmd.colorscheme "catppuccin"
+
+vim.opt.undofile = true

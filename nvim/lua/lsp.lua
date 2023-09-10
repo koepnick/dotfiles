@@ -1,4 +1,5 @@
 local nvim_lsp = require('lspconfig')
+require('lsp_python')
 
 local on_attach = function(client, bufnr)
         require('completion').on_attach()
@@ -32,12 +33,14 @@ local on_attach = function(client, bufnr)
         end
 end
 
-local servers = {'pyright', 'gopls', 'rust_analyzer'}
+-- These are generic-ish configs that will be expanded as I discover more needs
+local servers = {'gopls', 'rust_analyzer'}
 for _, lsp in ipairs(servers) do
         nvim_lsp[lsp].setup {
                 on_attach = on_attach,
         }
 end
+
 
 local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
 for type, icon in pairs(signs) do

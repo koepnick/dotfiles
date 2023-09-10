@@ -10,4 +10,10 @@ require('functions')
 require('project')
 require('surround')
 require('cmp_')
+require('_sandbox')
+
+if vim.g.neovide then
+    require('neovide')
+end
 -- require('buffers') -- Work in progress
+
