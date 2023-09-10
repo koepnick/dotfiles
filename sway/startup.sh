@@ -4,6 +4,7 @@
 #systemctl --user start kanshi
 pgrep -x waybar || /usr/bin/waybar > ~/.local/logs/waybar.log &
 pgrep -x avizo-service || /usr/bin/avizo-service > ~/.local/logs/avizo.log &
+pgrep -x wl-paste || wl-paste --watch cliphist store > ~/.local/logs/wl-paste.log &
 
 pgrep -x pia-client || /opt/piavpn/bin/pia-client > ~/.local/logs/pia-client.log &
 pgrep -x wireguird || /opt/wireguird/wireguird > ~/.local/logs/wireguird.log &
